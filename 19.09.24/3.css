@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  .red {
        color: red;
 }
@@ -6,4 +7,14 @@
 }
  .green {
        color: green;
+=======
+ .red {
+       color: red;
+}
+ .thick {
+       font-size: 20px;
+}
+ .green {
+       color: green;
+>>>>>>> ab39db1824283cae6ae19c2896e67db59c394e07
 }
