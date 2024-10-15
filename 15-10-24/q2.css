@@ -1,0 +1,32 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+.product-container {
+    width: 200px; 
+    padding: 20px; 
+    border: 10px solid #ccc; 
+    margin: 15px; 
+    background-color: white; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    text-align: center; 
+}
+
+.product-image {
+    max-width: 100%; 
+    height: auto; 
+}
+
+h3 {
+    margin: 10px 0; 
+}
+
+p {
+    color: #555; 
+}
