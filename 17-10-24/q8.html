@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image with Styles</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 200vh;
+            background-color: #f4f4f4;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: #333;
+            display: flex;
+            padding: 10px 0;
+            text-align:center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin: 50px 0;
+        }
+
+        .image-container img {
+            border: 5px solid #3498db;
+            outline: 3px dashed #e74c3c;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .styled-text {
+            text-align: center;
+            margin: 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+        .headimg{
+            
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+    <div class="headimg"></div>
+    <div class="image-container">
+        <img src="https://intellipaat.com/course-image/2024/08/iHUB-Video-Image.png" alt="iHUB Video Image">
+    </div>
+
+    <div class="styled-text">
+        <h1>Welcome to Our Website</h1>
+        <p>This is a demonstration of an image with various styles and a navigation bar.</p>
+    </div>
+
+</body>
+</html>
