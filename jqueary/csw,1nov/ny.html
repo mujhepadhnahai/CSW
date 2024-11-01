@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYRAMA Inventory</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .inventory {
+            max-width: 800px;
+            margin: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            padding: 20px;
+        }
+        .product {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .product:last-child {
+            border-bottom: none;
+        }
+        .product h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .product p {
+            margin: 5px 0;
+        }
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .total {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="inventory">
+        <h1>NYRAMA Inventory</h1>
+        <div id="productList"></div>
+        <div class="total" id="totalPrice"></div>
+    </div>
+
+    <script>
+        const defaultStock = 500;
+        const products = [
+            { name: "Product 1", price: 10 },
+            { name: "Product 2", price: 15 },
+            { name: "Product 3", price: 20 },
+            { name: "Product 4", price: 25 },
+            { name: "Product 5", price: 30 },
+            { name: "Product 6", price: 12 },
+            { name: "Product 7", price: 18 },
+            { name: "Product 8", price: 22 },
+            { name: "Product 9", price: 27 },
+            { name: "Product 10", price: 35 },
+            { name: "Product 11", price: 40 },
+            { name: "Product 12", price: 5 },
+            { name: "Product 13", price: 50 },
+            { name: "Product 14", price: 60 },
+            { name: "Product 15", price: 70 }
+        ];
+
+        function getStockFromCookies() {
+            const cookieArray = document.cookie.split('; ');
+            const stock = {};
+            cookieArray.forEach(cookie => {
+                const [name, value] = cookie.split('=');
+                if (name.startsWith('stock_')) {
+                    stock[name.replace('stock_', '')] = parseInt(value);
+                }
+            });
+            return stock;
+        }
+
+        function setStockCookie(productName, stock) {
+            document.cookie = `stock_${productName}=${stock}; path=/;`;
+        }
+
+        const stock = getStockFromCookies();
+        products.forEach(product => {
+            product.stock = stock[product.name] || defaultStock; // Use cookie stock or default
+        });
+
+        const productList = document.getElementById('productList');
+        let totalPrice = 0;
+
+        function updateProductList() {
+            productList.innerHTML = '';
+            products.forEach(product => {
+                const productDiv = document.createElement('div');
+                productDiv.classList.add('product');
+                productDiv.innerHTML = `
+                    <div>
+                        <h2>${product.name}</h2>
+                        <p>Price: $${product.price}</p>
+                        <p>Stock: ${product.stock}</p>
+                    </div>
+                    <button onclick="sellProduct('${product.name}')">Sell</button>
+                `;
+                productList.appendChild(productDiv);
+            });
+            totalPrice = products.reduce((sum, product) => sum + (product.price * product.stock), 0);
+            document.getElementById('totalPrice').innerText = `Total Inventory Value: $${totalPrice}`;
+        }
+
+        function sellProduct(productName) {
+            const product = products.find(p => p.name === productName);
+            const quantity = parseInt(prompt(`Enter the number of ${product.name} to sell:`));
+            if (quantity > 0 && quantity <= product.stock) {
+                product.stock -= quantity;
+                setStockCookie(product.name, product.stock); // Update cookie
+                alert(`Sold ${quantity} of ${product.name}. Remaining stock: ${product.stock}`);
+            } else {
+                alert("Invalid quantity!");
+            }
+            updateProductList();
+        }
+
+        updateProductList();
+    </script>
+
+</body>
+</html>

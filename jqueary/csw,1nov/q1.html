@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jqueary</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#b1").click(function(){
+            alert("Text: "+$("#par").text());
+            $("#par").text("set content");
+        });
+        $("#b2").click(function(){
+            alert("Html: "+$("#par1").text());
+            $("#par").text("set content");
+        });
+        $("#b3").click(function(){
+            alert("value: "+$("#txt").val());
+            $("#txt").text("value changed");
+        });
+    })
+</script>
+<style>
+    #mar{
+        margin: 10%;
+    }
+</style>
+<body>
+      <div style="display: flex;">
+        <div id="mar">
+            <p id="par">This is the line part of the paragraph<b>contains bold</b></p> 
+            <button id="b1">Display text</button>
+        </div>
+        <div id="mar">
+            <p id="par1">This is the line part of the paragraph<b>contains bold</b></p> 
+            <button id="b2">HTML code</button>
+        </div>
+        </div>
+        <div id="mar">
+            <p>Username: <input type="text" id="txt" value="nyrama"></p> 
+            <button id="b3">check the value</button>
+        </div>
+</body>
+</html>
