@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .important{
+        font-weight: bold;
+        font-size: large;
+       }
+       .green{
+        color: green;
+       }
+    .decendants{
+
+    }
+</style>
+
+<style>
+    .siblings *{
+        display: block;
+        border: 2px solid yellow;
+        color: blue;
+        padding: 5px;
+        margin: 15px;
+    }
+</style>
+<script>
+    $(document).ready(function(){
+      $('h2').prevUnit('p').css({'color':'red','border':'2px solid red'})
+    });
+</script>
+</head>
+<body class="siblings">
+    <div>
+        div (parent)
+        <p></p>
+    </div>
+        
+</body>
+</html>

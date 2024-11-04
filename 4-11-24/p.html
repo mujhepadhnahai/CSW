@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add,remove</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .divv{
+            width: 800px;
+            height: 200px;
+            background-color: yellow;
+            border: 2px solid black;
+            border-radius: 2px;
+            margin: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="divv" id="dd"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+         labore voluptatum eligendi a. Fuga laborum excepturi perspiciatis necessitatibus,
+          minus blanditiis corrupti ducimus rem modi officiis! Rerum, itaque, error ad 
+          ducimus libero repellendus, sint in eum consectetur possimus pariatur velit 
+          mollitia delectus. Error quisquam eum saepe mollitia quam animi, quidem vel 
+          at, quibusdam magnam ab accusantium vero illo corrupti recusandae nam nobis 
+          est explicabo velit? Magnam explicabo recusandae repellendus, voluptatibus
+          eius odio laborum dolor veritatis porro nam. Exercitationem officiis, recusandae
+          commodi voluptatibus ab quas quidem unde. Neque quidem natus explicabo tempora!
+          Reiciendis rem quos voluptate ipsam voluptatum sequi neque illo provident!</p></div>
+
+    <button id="delete">Delete</button>
+
+    <div class="divv" id="de"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+        labore voluptatum eligendi a. Fuga laborum excepturi perspiciatis necessitatibus,
+         minus blanditiis corrupti ducimus rem modi officiis! Rerum, itaque, error ad 
+         ducimus libero repellendus, sint in eum consectetur possimus pariatur velit 
+         mollitia delectus. Error quisquam eum saepe mollitia quam animi, quidem vel 
+         at, quibusdam magnam ab accusantium vero illo corrupti recusandae nam nobis 
+         est explicabo velit? Magnam explicabo recusandae repellendus, voluptatibus
+         eius odio laborum dolor veritatis porro nam. Exercitationem officiis, recusandae
+         commodi voluptatibus ab quas quidem unde. Neque quidem natus explicabo tempora!
+         Reiciendis rem quos voluptate ipsam voluptatum sequi neque illo provident!</p></div>
+  
+     <button id="empty">Empty</button>
+
+     <script>
+        $(document).ready(function(){
+            $('#delete').click(function(){
+               $('#dd').remove();
+            });
+            $('#empty').click(function(){
+                $('#de').empty();
+             });
+        });
+    </script>
+
+</body>
+</html>

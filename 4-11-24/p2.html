@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addclass</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+       .important{
+        font-weight: bold;
+        font-size: large;
+       }
+       .green{
+        color: green;
+       }
+    </style>
+</head>
+<body>
+  
+    <h1>head 1 Lorem, ipsum dolor.</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Molestias dignissimos minima mollitia animi ipsum 
+        ab molestiae repellat ex, sapiente esse soluta omnis
+        velit fugiat. Omnis culpa fuga expedita in aspernatur!
+        Iste quaerat doloremque quia assumenda aut voluptas 
+        quisquam unde voluptate, voluptatibus saepe nesciunt
+    </p>
+    <h2>head 2 Lorem, ipsum dolor.</h2>
+  
+    <button id="b1">add class</button>
+    <button id="b2">toggle</button>
+    <button id="b3">remove</button>
+
+     <script>
+        $(document).ready(function(){
+          $('#b1').click(function(){
+            $('h1,h2,p').addClass('green');
+            $('div').addClass('important green');
+          });
+
+          $('#b2').click(function(){
+            $('h1,h2,p').toggleClass('green');
+            $('div').toggleClass('important green');
+          });
+
+          $('#b3').click(function(){
+            $('h1,h2,p').removeClass('green');
+          });
+        });
+    </script>
+
+</body>
+</html>

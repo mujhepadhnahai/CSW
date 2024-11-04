@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animate Div</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #anim {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+
+<div id="anim"></div>
+<button id="start">Start</button>
+<button id="stop">Stop</button>
+
+<script>
+    $(document).ready(function() {
+        $('#start').click(function() {
+            $('#anim').stop(); 
+            $('#anim').animate({ width: '400px' }, 2000);
+        });
+        $('#stop').click(function() {
+            $('#anim').stop();
+        });
+    });
+</script>
+
+</body>
+</html>
