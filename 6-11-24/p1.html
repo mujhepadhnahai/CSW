@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filter</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+             $(document).ready(function(){
+                // $("div").first().css('background-color','red');
+                // $("div").last().css('background-color','blue');
+                // $("div").eq(1).css('background-color','yellow');
+                // $("p").filter(".name").css('background-color','aqua');
+                $("p").not(".name").css('background-color','green');
+
+
+
+             });
+    </script>
+</head>
+<body>
+    <div class="name"><p>para 1 under div 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias sunt corporis sed aut illo asperiores assumenda doloribus quia ullam iste.</p></div>
+    <div class="name"><p class="name">>para 2 under div 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias sunt corporis sed aut illo asperiores assumenda doloribus quia ullam iste.</p></div>
+    <div class="name"><p>>para 3 under div 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias sunt corporis sed aut illo asperiores assumenda doloribus quia ullam iste.</p></div>
+</body>
+</html>
