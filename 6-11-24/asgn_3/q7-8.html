@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+         
+            $('#addRow').click(function() {    
+                $('table').append('<tr><td>John</td><td>234</td><td>CSE</td><td><button class="deleteBtn">Delete</button></td></tr>');
+            });
+
+           
+            $('#changeColor').click(function() {    
+                $('td').css('color', 'red');
+            });
+
+           
+            $('#addDynamic').click(function() {
+                var name = $('#Name').val();
+                var reg = $('#Reg').val();
+                var branch = $('#Branch').val();
+                if (name && reg && branch) {
+                    $('table').append('<tr><td>' + name + '</td><td>' + reg + '</td><td>' + branch + '</td><td><button class="deleteBtn">Delete</button></td></tr>');
+                } else {
+                    alert('Please fill all the fields');
+                }
+            });
+
+            $(document).on('click', '.deleteBtn', function() {
+                $(this).closest('tr').remove();
+            });
+           
+            $('#remove1').click(function() {
+                var regNo = $('#removeId').val();
+                if (regNo) {
+                    
+                    $('table tr').each(function() {
+                        var rowRegNo = $(this).find('td:nth-child(2)').text();
+                        if (rowRegNo === regNo) {
+                            $(this).remove();
+                            return false; 
+                        }
+                    });
+                } else {
+                    alert('Please enter a Reg No');
+                }
+            });
+        });
+    </script>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h2>SOA PORTAL</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Reg.no</th>
+            <th>Branch</th>
+            <th>Action</th>
+        </tr>
+        <tr id="row1">
+            <td>ABC</td>
+            <td>123</td>
+            <td>IT</td>
+            <td><button class="deleteBtn">Delete</button></td>
+        </tr>
+        <tr id="row2">
+            <td>XYZ</td>
+            <td>456</td>
+            <td>CSE</td>
+            <td><button class="deleteBtn">Delete</button></td>
+        </tr>
+    </table><br>
+    <button id="addRow">Add a row</button>
+    <button id="changeColor">Change color</button><br><br>
+    
+    <div class="inputData">
+        <input type="text" id="Name" placeholder="student name">
+        <input type="text" id="Reg" placeholder="Reg.no">
+        <input type="text" id="Branch" placeholder="Branch">
+        <button id="addDynamic">Add Dynamic</button><br><br>
+        <input type="text" id="removeId" placeholder="Enter Reg.no">
+        <button id="remove1">Remove</button>
+    </div>
+</body>
+</html>
